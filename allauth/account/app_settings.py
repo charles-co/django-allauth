@@ -28,9 +28,11 @@ class AppSettings(object):
             not self.AUTHENTICATION_METHOD == self.AuthenticationMethod.EMAIL
         ) or self.EMAIL_REQUIRED
         # If login includes email, login must be unique
-        assert (
-            self.AUTHENTICATION_METHOD == self.AuthenticationMethod.USERNAME
-        ) or self.UNIQUE_EMAIL
+        assert self.AUTHENTICATION_METHOD in (
+            self.AuthenticationMethod.USERNAME,
+            self.AuthenticationMethod.USERNAME_EMAIL,
+            self.AuthenticationMethod.EMAIL,
+        )
         assert (
             self.EMAIL_VERIFICATION != self.EmailVerificationMethod.MANDATORY
         ) or self.EMAIL_REQUIRED
