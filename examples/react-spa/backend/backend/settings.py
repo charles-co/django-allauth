@@ -137,7 +137,11 @@ HEADLESS_FRONTEND_URLS = {
     "account_reset_password": "/account/password/reset",
     "account_reset_password_from_key": "/account/password/reset/key/{key}",
     "account_signup": "/account/signup",
+    "socialaccount_login_error": "/account/provider/callback",
 }
+
+MFA_SUPPORTED_TYPES = ["totp", "recovery_codes", "webauthn"]
+MFA_PASSKEY_LOGIN_ENABLED = True
 
 try:
     from .local_settings import *  # noqa
